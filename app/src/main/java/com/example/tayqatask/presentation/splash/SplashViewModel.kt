@@ -1,9 +1,9 @@
-package com.example.tayqatask.main
+package com.example.tayqatask.presentation.splash
 
 import androidx.lifecycle.ViewModel
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(
+class SplashViewModel @Inject constructor(
 
 ) : ViewModel(){
     fun getTest() = "TEST"
