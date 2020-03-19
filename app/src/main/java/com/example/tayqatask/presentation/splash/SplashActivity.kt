@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.tayqatask.R
 import com.example.tayqatask.di.base.BaseActivity
 import com.example.tayqatask.di.factory.ViewModelProviderFactory
+import com.example.tayqatask.network.database.ApplicationDatabase
+import com.example.tayqatask.network.model.GoalModel
 import com.example.tayqatask.presentation.home.HomeActivity
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
@@ -20,8 +22,10 @@ class SplashActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         viewModel =
             ViewModelProvider(this, factory)[SplashViewModel::class.java]
+        viewModel.inputs.insertGoals()
         Handler().postDelayed({
             startActivity(Intent(this, HomeActivity::class.java))
             finish()

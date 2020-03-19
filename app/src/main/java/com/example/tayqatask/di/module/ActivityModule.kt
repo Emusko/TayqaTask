@@ -1,5 +1,6 @@
 package com.example.tayqatask.di.module
 
+import com.example.tayqatask.presentation.home.HomeActivity
 import com.example.tayqatask.presentation.splash.SplashActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -8,4 +9,6 @@ import dagger.android.ContributesAndroidInjector
 abstract class ActivityModule {
     @ContributesAndroidInjector(modules = [ViewModelModule::class])
     abstract fun mainActivity(): SplashActivity
+    @ContributesAndroidInjector(modules = [ViewModelModule::class])
+    abstract fun homeActivity(): HomeActivity
 }

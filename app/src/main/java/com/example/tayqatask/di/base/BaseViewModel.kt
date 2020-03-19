@@ -2,6 +2,7 @@ package com.example.tayqatask.di.base
 
 import androidx.lifecycle.ViewModel
 import io.reactivex.Observable
+import io.reactivex.disposables.CompositeDisposable
 
 interface BaseViewModelInputs {
 }
@@ -15,5 +16,5 @@ open class BaseViewModel : ViewModel(), BaseViewModelInputs, BaseViewModelOutput
 
     open val outputs: BaseViewModelOutputs
         get() = this
-
+    protected val subscriptions = CompositeDisposable()
 }
