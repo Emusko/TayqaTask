@@ -6,7 +6,7 @@ import androidx.room.Entity
 data class GoalModel(
     val id: String,
     val index: Int,
-    val status: Int,
+    var status: Int,
     val picture: String,
     val name: String
 )

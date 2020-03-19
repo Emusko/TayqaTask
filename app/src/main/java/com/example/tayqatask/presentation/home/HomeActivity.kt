@@ -17,6 +17,8 @@ class HomeActivity : BaseActivity() {
     lateinit var factory: ViewModelProviderFactory
 
     lateinit var viewModel: HomeViewModel
+    lateinit var linearLayoutManager : LinearLayoutManager
+    lateinit var adapter: HomeAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -29,7 +31,7 @@ class HomeActivity : BaseActivity() {
     }
 
     private fun attachManager() {
-        val linearLayoutManager = LinearLayoutManager(this)
+        linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
 
         recyclerView.layoutManager = linearLayoutManager
@@ -41,7 +43,10 @@ class HomeActivity : BaseActivity() {
 
     private fun setOutputListeners() {
         viewModel.outputs.onGoals().subscribe {
-            recyclerView.adapter = HomeAdapter(it)
+            adapter = HomeAdapter(it.toMutableList()){ position ->
+                adapter.swapItems(position)
+            }
+            recyclerView.adapter = adapter
         }.addTo(subscriptions)
     }
 }
