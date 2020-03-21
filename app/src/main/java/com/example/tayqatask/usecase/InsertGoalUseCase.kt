@@ -1,7 +1,7 @@
 package com.example.tayqatask.usecase
 
-import com.example.tayqatask.network.model.GoalModel
-import com.example.tayqatask.network.repository.GoalRepository
+import com.example.tayqatask.data.model.GoalModel
+import com.example.tayqatask.data.repository.GoalRepository
 import javax.inject.Inject
 
 class InsertGoalUseCase @Inject constructor(

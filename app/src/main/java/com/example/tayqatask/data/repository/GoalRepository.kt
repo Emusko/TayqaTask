@@ -1,7 +1,7 @@
-package com.example.tayqatask.network.repository
+package com.example.tayqatask.data.repository
 
-import com.example.tayqatask.network.database.ApplicationDatabase
-import com.example.tayqatask.network.model.GoalModel
+import com.example.tayqatask.data.database.ApplicationDatabase
+import com.example.tayqatask.data.model.GoalModel
 import javax.inject.Inject
 
 class GoalRepository @Inject constructor(

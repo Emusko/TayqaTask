@@ -9,7 +9,8 @@ interface BaseViewModelInputs {
 
 interface BaseViewModelOutputs {
 }
-
+//Every viewModel in this application should extend Base and implement inputs, outputs
+//This will give the developer right navigation to see project life cycle
 open class BaseViewModel : ViewModel(), BaseViewModelInputs, BaseViewModelOutputs{
     open val inputs: BaseViewModelInputs
         get() = this

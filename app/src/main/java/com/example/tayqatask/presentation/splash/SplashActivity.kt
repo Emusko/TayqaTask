@@ -7,10 +7,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.tayqatask.R
 import com.example.tayqatask.di.base.BaseActivity
 import com.example.tayqatask.di.factory.ViewModelProviderFactory
-import com.example.tayqatask.network.database.ApplicationDatabase
-import com.example.tayqatask.network.model.GoalModel
 import com.example.tayqatask.presentation.home.HomeActivity
-import dagger.android.support.DaggerAppCompatActivity
+import io.reactivex.rxkotlin.addTo
 import javax.inject.Inject
 
 class SplashActivity : BaseActivity() {
@@ -25,10 +23,23 @@ class SplashActivity : BaseActivity() {
 
         viewModel =
             ViewModelProvider(this, factory)[SplashViewModel::class.java]
+        setOutputListeners()
+        setInputListeners()
+
+    }
+
+    private fun setInputListeners() {
+        //Assume fetch goals from server as we did it in viewModel
         viewModel.inputs.insertGoals()
-        Handler().postDelayed({
-            startActivity(Intent(this, HomeActivity::class.java))
-            finish()
-        }, 5000)
+    }
+
+    private fun setOutputListeners() {
+        //Listen to fetching data. If completed open HomeActivity
+        viewModel.outputs.onFetchCompleted().subscribe {
+            Handler().postDelayed({
+                startActivity(Intent(this, HomeActivity::class.java))
+                finish()
+            }, 5000)
+        }.addTo(subscriptions)
     }
 }

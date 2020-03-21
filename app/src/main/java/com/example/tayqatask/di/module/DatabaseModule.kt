@@ -2,13 +2,11 @@ package com.example.tayqatask.di.module
 
 import android.app.Application
 import androidx.room.Room
-import androidx.room.RoomDatabase
-import com.example.tayqatask.di.base.BaseApplication
-import com.example.tayqatask.network.database.ApplicationDatabase
+import com.example.tayqatask.data.database.ApplicationDatabase
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
 
+//Database module for provide database accesss
 @Module
 class DatabaseModule {
     @Provides

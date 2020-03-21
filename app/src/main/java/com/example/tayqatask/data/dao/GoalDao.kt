@@ -1,12 +1,11 @@
-package com.example.tayqatask.network.dao
+package com.example.tayqatask.data.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.tayqatask.network.model.GoalModel
+import com.example.tayqatask.data.model.GoalModel
 import io.reactivex.Flowable
-import io.reactivex.Observable
 
 @Dao
 interface GoalDao {

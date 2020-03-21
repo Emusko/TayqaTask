@@ -9,7 +9,7 @@ import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
-
+//Dagger Application component
 @Component(
     modules = [
         AndroidSupportInjectionModule::class,

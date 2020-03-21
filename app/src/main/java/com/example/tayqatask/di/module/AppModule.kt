@@ -6,7 +6,7 @@ import com.example.tayqatask.di.base.BaseApplication
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
-
+//Application needed dependencies provided in this module
 @Module
 class AppModule {
     @Provides
@@ -16,5 +16,5 @@ class AppModule {
     fun provideContext(application: Application) = application.applicationContext
 
     @Provides
-    fun provideGson(application: Application) = Gson()
+    fun provideGson() = Gson()
 }
