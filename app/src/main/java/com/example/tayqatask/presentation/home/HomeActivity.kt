@@ -38,9 +38,4 @@ class HomeActivity : BaseActivity() {
             recyclerView.adapter = viewModel.homeAdapter
         }.addTo(subscriptions)
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        val list = viewModel.goalList
-    }
 }
