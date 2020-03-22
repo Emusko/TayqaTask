@@ -22,6 +22,7 @@ interface HomeViewModelOutputs: BaseViewModelOutputs{
 }
 class HomeViewModel @Inject constructor(
     private val getGoalsUseCase: GetGoalsUseCase,
+
     private val updateGoalUseCase: UpdateGoalUseCase
 ): BaseViewModel(), HomeViewModelInputs, HomeViewModelOutputs{
     override val inputs: HomeViewModelInputs = this
@@ -31,6 +32,12 @@ class HomeViewModel @Inject constructor(
     val goalList = mutableListOf<GoalModel>()
     val homeAdapter: HomeAdapter = HomeAdapter(goalList){
         updateGoal(it)
+        getGoalsUseCase.execute().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+            .subscribe({goals ->
+                Log.i("FIRST ONE", goals[0].toString())
+            }, {
+
+            }).addTo(subscriptions)
     }
     init {
 
